@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "7c8ed117-85dd-401c-847b-06ec22b6b5c0",
+		"name": "Greeting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "say message should be สวัสดี ชาวโลก",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb9f3d81-79f0-41a5-a262-5d57c1f3a126",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Message should be สวัสดี ชาวโลก\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql('สวัสดี ชาวโลก');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/say",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"say"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
