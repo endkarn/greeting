@@ -2,6 +2,7 @@ package api_test
 
 import (
 	. "greeting/api"
+	"greeting/model"
 	"io/ioutil"
 	"net/http/httptest"
 	"testing"
@@ -16,8 +17,15 @@ func Test_GreetingHandler_Should_Be_SaWadDeeChaoLok(t *testing.T) {
 	request := httptest.NewRequest("GET", "/say", nil)
 	writer := httptest.NewRecorder()
 
+	mockMessageRepository := new(mockGreeting)
+	mockMessageRepository.On("GetMessage").Return(model.Greeting{
+		ID:      1,
+		Message: "สวัสดี ชาวโลก",
+	})
+
 	greetingHandler := Greeting{
-		DB: &sqlx.DB{},
+		DB:        &sqlx.DB{},
+		MessageDB: mockMessageRepository,
 	}
 
 	testRoute := gin.Default()
