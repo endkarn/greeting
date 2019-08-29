@@ -49,6 +49,6 @@ func main() {
 		DB: db,
 	}
 
-	engine.GET("/say/", greetingHandler.GreetingHandler)
+	engine.GET("/say", greetingHandler.GreetingHandler)
 	log.Fatal(engine.Run(fmt.Sprintf(":%s", port)))
 }
