@@ -13,7 +13,7 @@ import (
 )
 
 func Test_GreetingHandler_Should_Be_SaWadDeeChaoLok(t *testing.T) {
-	expected := `{"message":"สวัสดี ชาวโลก"}`
+	expected := `{"message":"สวัสดีชาวโลก"}`
 	request := httptest.NewRequest("GET", "/say", nil)
 	writer := httptest.NewRecorder()
 
