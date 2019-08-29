@@ -1,3 +1,5 @@
+// +build integration
+
 package repository_test
 
 import (
