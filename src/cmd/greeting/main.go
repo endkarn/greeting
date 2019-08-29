@@ -17,9 +17,9 @@ func main() {
 	flag.StringVar(&port, "port", "3000", "port for open service")
 	flag.StringVar(&dbhost, "dbhost", "localhost", "database host name")
 	flag.IntVar(&dbport, "dbport", 5432, "database port")
-	flag.StringVar(&dbschema, "dbschema", "smalldoc", "database schema name")
-	flag.StringVar(&dbusername, "dbusername", "smalldoc", "database user name")
-	flag.StringVar(&dbpassword, "dbpassword", "example", "database password")
+	flag.StringVar(&dbschema, "dbschema", "greeting", "database schema name")
+	flag.StringVar(&dbusername, "dbusername", "greeting", "database user name")
+	flag.StringVar(&dbpassword, "dbpassword", "greeting", "database password")
 	flag.StringVar(&disableTLS, "disableTLS", "Y", "database disableTLS[Y/n]")
 	flag.Parse()
 
@@ -35,7 +35,7 @@ func main() {
 		Password:   dbpassword,
 		Host:       dbhost,
 		Port:       dbport,
-		Name:       dbschema,
+		DBName:     dbschema,
 		DisableTLS: databaseTSL,
 	}
 
