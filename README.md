@@ -18,14 +18,20 @@
 #### Build Application
 1. build application ให้เป็น docker images
 
-`make build-app`
+```
+make build-app
+```
 
 #### Run Application
 2. สั่ง docker-compose up เพิ่ม start PostgreSQL และ greeting
 
-`make up`
+```
+make up
+```
 
 #### Stop Application
 3. หยุดการทำงานของ application
-`control + c `
-`make down`
+```
+control + c 
+make down
+```
