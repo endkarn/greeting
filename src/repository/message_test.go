@@ -1,5 +1,3 @@
-// +build integration
-
 package repository_test
 
 import (
@@ -27,20 +25,6 @@ func Test_ProductDB(t *testing.T) {
 	}
 	defer db.Close()
 
-	schema := `
-	CREATE TABLE greeting (
-		id   int,
-		message TEXT,
-	
-		PRIMARY KEY (id)
-	);
-	`
-	resual, err := NewTable(db, schema)
-	if err != nil {
-		t.Log("ceate tabel error: ", err)
-
-	}
-	t.Log(resual)
 	postgresDB := PostgresDB{
 		DB: db,
 	}
@@ -55,5 +39,11 @@ func Test_ProductDB(t *testing.T) {
 		assert.Equal(t, nil, err)
 		assert.Equal(t, expected, actual)
 	})
+
+	resual, err := DropTable(db, "greeting")
+	if err != nil {
+		t.Log("drop tabel error: ", err)
+
+	}
 	t.Log(resual)
 }
