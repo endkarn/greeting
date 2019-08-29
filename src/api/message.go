@@ -3,7 +3,6 @@ package api
 import (
 	"greeting/model"
 	"greeting/repository"
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,14 +15,8 @@ type Greeting struct {
 }
 
 func (api Greeting) GreetingHandler(context *gin.Context) {
-	greeting, err := api.MessageDB.GetMessage()
-	if err != nil {
-		log.Println("Handlers GetProductByID error: ", err)
-		context.JSON(http.StatusBadRequest, err)
-		return
-	}
 	message := model.Greeting{
-		Message: greeting.Message,
+		Message: "สวัสดีชาวโลก",
 	}
 	context.JSON(http.StatusOK, &message)
 }
