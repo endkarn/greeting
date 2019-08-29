@@ -19,7 +19,7 @@
 							"",
 							"pm.test(\"Message should be สวัสดี ชาวโลก\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.eql('สวัสดี ชาวโลก');",
+							"    pm.expect(jsonData.message).to.eql('สวัสดีชาวโลก');",
 							"});"
 						],
 						"type": "text/javascript"
